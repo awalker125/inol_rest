@@ -4,6 +4,9 @@ from flask_debugtoolbar import DebugToolbarExtension
 import logging
 from logging.handlers import RotatingFileHandler
 
+from flask_zipkin import Zipkin
+
+#zipkin = Zipkin(sample_rate=10)
 
 
 from .config import config_by_name
@@ -21,11 +24,12 @@ def create_app(config_name):
     #init api restplus
     #api.init_app(app)
 
+    #zipkin.init_app(app)
 
-    from .home import home as home_blueprint
+    from inol_rest.home import home as home_blueprint
     app.register_blueprint(home_blueprint, url_prefix='/')
 
-    from .api import api_blueprint as api_blueprint
+    from inol_rest.api import api_blueprint as api_blueprint
     app.register_blueprint(api_blueprint, url_prefix='/api')
 
     #setup logging

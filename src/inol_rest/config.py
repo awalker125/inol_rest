@@ -11,7 +11,7 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'thermos.db')
-
+    HOST = "0.0.0.0"
 
 class TestingConfig(Config):
     TESTING = True
