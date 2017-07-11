@@ -25,7 +25,7 @@ def calculate_set_inol(reps, intensity):
     logger.debug("intensity {0}".format(str(intensity)))   
     return float(reps) / (100 - intensity)
 
-def generate_training_options(current_max, max_reps, intensity, max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol):
+def generate_training_options(intensity, maximum, max_reps,  max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol):
     min_sets = 1
     training_options = []
     for r in range(1, max_reps + 1):
@@ -35,7 +35,7 @@ def generate_training_options(current_max, max_reps, intensity, max_sets, min_se
         for s in range(min_sets, max_sets + 1):
             exercise_inol = set_inol * s
             volume = r * s
-            weight = current_max * (float(intensity) / 100)
+            weight = maximum * (float(intensity) / 100)
             weight_powerlifting = roundPowerlifting(weight)
             weight_olympic = roundOlympiclifting(weight)
             scheme = str(s) + "x" + str(r) + "@" + str(intensity) + "%"
@@ -62,3 +62,12 @@ def generate_training_options(current_max, max_reps, intensity, max_sets, min_se
     logger.debug(training_options)
     return training_options
 
+
+def generate_training_plan(name, maximum, max_reps, max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol, week, intensity, target_exercise_inol):
+    
+    training_plan = []
+    
+    training_options = generate_training_options(intensity, maximum, max_reps,  max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol)
+    
+    
+    

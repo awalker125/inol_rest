@@ -26,7 +26,7 @@ trainingSession = api.model('trainingSession',
 
 trainingModel = api.model('trainingModel',
                            {   
-                               "trainingSessions": fields.List(fields.Nested(trainingSession), description='Training schema set x reps @ intensity'),
+                               "trainingSessions": fields.List(fields.Nested(trainingSession), description='Training sessions which make up the overall model'),
                             }
                            )
 # Models Request

@@ -74,9 +74,9 @@ class TrainingOptions(Resource):
         i = api.payload
         # current_max, max_reps, intensity,  max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol
         training_options = generate_training_options(
+            i['intensity'],
             i['maximum'],
             i['max_reps'],
-            i['intensity'],
             i['max_sets'],
             i['min_set_inol'],
             i['max_set_inol'],
@@ -195,11 +195,15 @@ class TrainingPlan(Resource):
 
         # inboundRequest
         i = api.payload
+        
+        
+        
+        
         # current_max, max_reps, intensity,  max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol
         training_options = generate_training_options(
+            i['intensity'],
             i['maximum'],
             i['max_reps'],
-            i['intensity'],
             i['max_sets'],
             i['min_set_inol'],
             i['max_set_inol'],
