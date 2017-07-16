@@ -4,8 +4,8 @@ from flask_restplus import Resource
 
 from inol_rest.api import api
 from inol_rest.api import logger
-from inol_rest.api.models import inolResponse, inolRequest, trainingModel, trainingOption, trainingOptionsRequest, trainingOptionsResponse, trainingPlanRequest, trainingPlanResponse, trainingSession
-from inol_rest.api.core import calculate_set_inol_weight, generate_training_options
+from inol_rest.api.models import inol_response, inol_request, training_model, training_option, training_options_request, training_options_response, training_plan_request, training_plan_response, training_session
+from inol_rest.api.core import calculate_set_inol_weight, generate_training_options, generate_training_plan
 
 calc = api.namespace('calc', description='calculators')
 training = api.namespace('training', description='training operations')
@@ -18,9 +18,9 @@ training = api.namespace('training', description='training operations')
 @api.doc()
 class Inol(Resource):
 
-    @api.marshal_with(inolResponse)
-    @api.expect(inolRequest, validate=True)
-    @api.response(200, 'Success', inolResponse)
+    @api.marshal_with(inol_response)
+    @api.expect(inol_request, validate=True)
+    @api.response(200, 'Success', inol_response)
     def post(self):
 
         tracking_id = uuid.uuid4()
@@ -33,7 +33,7 @@ class Inol(Resource):
         i['inol'] = calculate_set_inol_weight(i['reps'], i['weight'], i['maximum'])
         i['tracking_id'] = tracking_id
         
-        # inolResponse = InolResponse(reps=data.reps)
+        # inol_response = inol_response(reps=data.reps)
         return i
 
 
@@ -59,11 +59,11 @@ class Inol(Resource):
 
 @training.route('/options')
 @api.doc()
-class TrainingOptions(Resource):
+class training_options(Resource):
 
-    @api.marshal_with(trainingOptionsResponse)
-    @api.expect(trainingOptionsRequest, validate=True)
-    @api.response(200, 'Success', trainingOptionsResponse)
+    @api.marshal_with(training_options_response)
+    @api.expect(training_options_request, validate=True)
+    @api.response(200, 'Success', training_options_response)
     def post(self):
 
         tracking_id = uuid.uuid4()
@@ -92,8 +92,8 @@ class TrainingOptions(Resource):
 
 
 # {
-#     "trainingModel": {
-#         "trainingSessions": [
+#     "training_model": {
+#         "training_sessions": [
 #             {
 #                 "week": 1,
 #                 "intensity": 65,
@@ -137,8 +137,8 @@ class TrainingOptions(Resource):
 
 
 # curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \ 
-#      "trainingModel": { \ 
-#          "trainingSessions": [ \ 
+#      "training_model": { \ 
+#          "training_sessions": [ \ 
 #              { \ 
 #                  "week": 1, \ 
 #                  "intensity": 65, \ 
@@ -184,9 +184,9 @@ class TrainingOptions(Resource):
 @api.doc()
 class TrainingPlan(Resource):
 
-    @api.marshal_with(trainingPlanResponse)
-    @api.expect(trainingPlanRequest, validate=True)
-    @api.response(200, 'Success', trainingPlanResponse)
+    @api.marshal_with(training_plan_response)
+    @api.expect(training_plan_request, validate=True)
+    @api.response(200, 'Success', training_plan_response)
     def post(self):
 
         tracking_id = uuid.uuid4()
@@ -196,20 +196,22 @@ class TrainingPlan(Resource):
         # inboundRequest
         i = api.payload
         
-        
-        
-        
-        # current_max, max_reps, intensity,  max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol
-        training_options = generate_training_options(
-            i['intensity'],
+        training_plan = generate_training_plan(
+            
+            #name, maximum, max_reps, max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol, training_model
+            i['name'],
             i['maximum'],
             i['max_reps'],
             i['max_sets'],
             i['min_set_inol'],
             i['max_set_inol'],
             i['min_exercise_inol'],
-            i['max_exercise_inol'])
-        i['training_options'] = training_options
+            i['max_exercise_inol'],
+            i['training_model']
+            )
+        
+        
+        i['training_plan'] = training_plan
         i['tracking_id'] = tracking_id
         
         return i

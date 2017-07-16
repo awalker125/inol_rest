@@ -3,6 +3,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 #from flask_restplus import Api
 import logging
 from logging.handlers import RotatingFileHandler
+from logging import FileHandler
+#from cloghandler import ConcurrentRotatingFileHandler
 
 from flask_zipkin import Zipkin
 
@@ -34,7 +36,8 @@ def create_app(config_name):
 
     #setup logging
     
-    handler = RotatingFileHandler('C:/var/tmp/flask.log', maxBytes=10000, backupCount=1)
+    #handler = ConcurrentRotatingFileHandler('C:/var/tmp/flask.log', "a", 512*1024, 5)
+    handler = FileHandler('C:/var/tmp/flask.log', mode='w')
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
 

@@ -3,7 +3,7 @@ from flask_restplus import fields
 
 # Models
 
-trainingOption = api.model('trainingOption', {   
+training_option = api.model('training_option', {   
                                "scheme": fields.String(description='Training schema set x reps @ intensity'),
                                "exercise_inol": fields.Float(description='The total exercise inol'),
                                "set_inol": fields.Float(description='The set inol'),
@@ -16,7 +16,7 @@ trainingOption = api.model('trainingOption', {
 
 
 
-trainingSession = api.model('trainingSession',
+training_session = api.model('training_session',
                            {   
                                "week": fields.Integer(description='Training week'),
                                "intensity": fields.Float(description='The training intensity'),
@@ -24,20 +24,20 @@ trainingSession = api.model('trainingSession',
                             }
                            )
 
-trainingModel = api.model('trainingModel',
+training_model = api.model('training_model',
                            {   
-                               "trainingSessions": fields.List(fields.Nested(trainingSession), description='Training sessions which make up the overall model'),
+                               "training_sessions": fields.List(fields.Nested(training_session), description='Training sessions which make up the overall model'),
                             }
                            )
 # Models Request
 
-inolRequest = api.model('inolRequest', {
+inol_request = api.model('inol_request', {
     'reps': fields.Integer(required=True, description='The number of reps in the set'),
     'weight': fields.Float(required=True, description='The number weight of the set'),
     'maximum': fields.Float(required=True, description='Current one rep max')
 })
 
-trainingOptionsRequest = api.model('trainingOptionsRequest', {
+training_options_request = api.model('training_options_request', {
     # current_max, max_reps, intensity, min_sets, max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol
     'intensity': fields.Float(required=True, description='The training intensity to generate options for. e.g 80%'),
     'maximum': fields.Float(required=True, description='Current one rep max'),
@@ -51,7 +51,7 @@ trainingOptionsRequest = api.model('trainingOptionsRequest', {
 
 
 
-trainingPlanRequest = api.model('trainingPlanRequest', {
+training_plan_request = api.model('training_plan_request', {
     # current_max, max_reps, intensity, min_sets, max_sets, min_set_inol, max_set_inol, min_exercise_inol, max_exercise_inol
     'name': fields.String(required=True, description='Exercise name e.g bench'),
     'maximum': fields.Float(required=True, description='Current one rep max'),
@@ -61,12 +61,12 @@ trainingPlanRequest = api.model('trainingPlanRequest', {
     'max_set_inol': fields.Float(required=True, description='The maximum set inol to consider'),
     'min_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
     'max_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
-    'trainingModel' : fields.Nested(trainingModel, required=True,description='The training model')
+    'training_model' : fields.Nested(training_model, required=True,description='The training model')
 })
 
 # Models Responses
 
-inolResponse = api.model('inolResponse', {
+inol_response = api.model('inol_response', {
     'reps': fields.Integer(required=True, description='The number of reps in the set'),
     'weight': fields.Float(required=True, description='The number weight of the set'),
     'maximum': fields.Float(required=True, description='Current one rep max'),
@@ -76,7 +76,7 @@ inolResponse = api.model('inolResponse', {
 
 
 
-trainingOptionsResponse = api.model('trainingOptionsResponse', {
+training_options_response = api.model('training_options_response', {
     'intensity': fields.Float(required=True, description='The training intensity to generate options for. e.g 80%'),
     'maximum': fields.Float(required=True, description='Current one rep max'),
     'max_reps': fields.Integer(required=True, description='The maximum number of reps per set.'),
@@ -85,12 +85,12 @@ trainingOptionsResponse = api.model('trainingOptionsResponse', {
     'max_set_inol': fields.Float(required=True, description='The maximum set inol to consider'),
     'min_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
     'max_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
-    'training_options': fields.List(fields.Nested(trainingOption), description='The training options'),
+    'training_options': fields.List(fields.Nested(training_option), description='The training options'),
     'tracking_id': fields.String(required=True, description="Tracking id")
 })
 
-trainingPlanResponse = api.model('trainingPlanResponse', {
-    'intensity': fields.Float(required=True, description='The training intensity to generate options for. e.g 80%'),
+training_plan_response = api.model('training_plan_response', {
+    'name': fields.String(required=True, description='Exercise name e.g bench'),
     'maximum': fields.Float(required=True, description='Current one rep max'),
     'max_reps': fields.Integer(required=True, description='The maximum number of reps per set.'),
     'max_sets': fields.Integer(required=True, description='The maximum number of sets'),
@@ -98,6 +98,6 @@ trainingPlanResponse = api.model('trainingPlanResponse', {
     'max_set_inol': fields.Float(required=True, description='The maximum set inol to consider'),
     'min_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
     'max_exercise_inol': fields.Float(required=True, description='The minimum exercise inol to consider'),
-    'training_options': fields.List(fields.Nested(trainingOption), description='The training options'),
+    'training_plan': fields.List(fields.Nested(training_option), description='The training options'),
     'tracking_id': fields.String(required=True, description="Tracking id")
 })
