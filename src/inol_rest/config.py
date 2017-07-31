@@ -6,10 +6,14 @@ class Config:
     SECRET_KEY = '~t\x86\xc9\x1ew\x8bOcX\x85O\xb6\xa2\x11kL\xd1\xce\x7f\x14<y\x9e'
     DEBUG = False
     LOG_DIR= "/var/log/"
+    GOOGLE_ANALYTICS_TRACKING_ID = 'UA-101246577-1'
 
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    #Debug toolbar stuff
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+    DEBUG_TB_ENABLED = False
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'thermos.db')
     HOST = "0.0.0.0"
 

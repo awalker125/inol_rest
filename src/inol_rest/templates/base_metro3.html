@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html>
+<!--<![endif]-->
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="description" content="Metro, a sleek, intuitive, and powerful framework for faster and easier web development for Windows Metro Style.">
+<meta name="keywords" content="HTML, CSS, JS, JavaScript, framework, metro, front-end, frontend, web development">
+<meta name="author" content="Andrew Walker">
+
+<link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
+<title>Tiles :: Metro UI CSS - The front-end framework for developing projects on the web in Windows Metro Style</title>
+
+<link href="{{ url_for('static', filename='css/metro.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/metro-icons.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/metro-responsive.css') }}" rel="stylesheet">
+<link href="{{ url_for('static', filename='css/metro-schemes.css') }}" rel="stylesheet">
+
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/base.css')}}">
+</head>
+<body>
+	<!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+	<div class="container page-content">{% block content %} {% endblock %}</div>
+
+
+
+
+
+
+	<!--  <script src="{{ url_for('static', filename='js/vendor/modernizr-2.8.3-respond-1.4.2.min.js') }}"></script>-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='js/vendor/jquery-1.11.2.min.js')}}"><\/script>')</script>
+
+
+	<script src="{{ url_for('static', filename='js/metro.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/base.js') }}"></script>
+
+	{% block scripts %} {% endblock %}
+
+	<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','{{ base_properties.google_analytics_tracking_id}}','auto');ga('send','pageview');
+    </script>
+</body>
+</html>
