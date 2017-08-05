@@ -1,4 +1,4 @@
+*.pyc
 /setup_shell.sh
 /proxy_off.sh
 /proxy_on.sh
-*.pyc
