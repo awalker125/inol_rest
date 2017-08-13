@@ -1,13 +1,8 @@
- {% extends "base.html" %} 
- 
- {% block head %}
- 
- <script src="{{ url_for('static', filename='vendor/mathjax/MathJax.js', config='TeX-MML-AM_SVG-full') }}" async></script>
- 
-{% endblock %}
- 
- 
- {% block content %}
+{% extends "base.html" %} {% block head %}
+
+<script src="{{ url_for('static', filename='vendor/mathjax/MathJax.js', config='TeX-MML-AM_SVG-full') }}" async></script>
+
+{% endblock %} {% block content %}
 
 
 <!-- About Section -->
@@ -73,11 +68,13 @@
 					</div>
 					<p>There are a couple of problems with the table which reduce its usefulness. Firstly it does not go beyond 6 reps. This is probably because lifts like snatch and clean and jerk are typically never performed above that rep range. Everyone does sets of 10 on bench and squat so how does this apply? Secondly what would you do if your session included intensities from two or more ranges. e.g
 						75%, 85%, 92%. Hristo Hristov wrote a paper entitled "How to Design Strength Training Programs Using Prilepin's Table". In it he devises a formula called the inol (Intensity x Number Of Lifts) which resolves these problems.</p>
-						<p>The equation is given below where set inol (n) is a function of the number of reps (r) at an intensity (i):
-					<span>$$ n = \frac{r}{100-i} $$</span>
-					<p>We can describe the exercise inol (N) as a function of the number of set (s) at a particular set inol (n):
-					<span>$$ N = {s}{n} $$</span>
-					<p>To give a concrete example. Someone with a 1 rep max bench press of 175kg performs a set of 8 reps at 140kg. The set inol would be calculated as:</p> 
+					<p>
+						The equation is given below where set inol (n) is a function of the number of reps (r) at an intensity (i):
+						<span>$$ n = \frac{r}{100-i} $$</span>
+					<p>
+						We can describe the exercise inol (N) as a function of the number of set (s) at a particular set inol (n):
+						<span>$$ N = {s}{n} $$</span>
+					<p>To give a concrete example. Someone with a 1 rep max bench press of 175kg performs a set of 8 reps at 140kg. The set inol would be calculated as:</p>
 					<span>$$ n = \frac{8}{100-((140/175)*100)}$$</span>
 					<span>$$ n = \frac{8}{100-((0.8)*100)}$$</span>
 					<span>$$ n = \frac{8}{100-80}$$</span>
@@ -86,7 +83,65 @@
 					<p>If 3 sets were performed at this then the exercise inol would be:</p>
 					<span>$$ N = {3}*{0.4} $$</span>
 					<span>$$ N = 1.2 $$</span>
-					<p></p>
+					<p>Now we can calculate the inol for any session we can use it to monitor performance over time. Some general guidance for weekly inols is given below:</p>
+					<div>
+						<!-- Table -->
+						<h4>Total weekly INOL of a single exercise:</h4>
+						<table class="table">
+							<tbody>
+								<tr>
+									<td><strong>Weekly Inol</strong></td>
+									<td><strong>Guidance</strong></td>
+								</tr>
+								<tr>
+									<td>$$ w < 2 $$</td>
+									<td>Easy, doable, good to do after more tiring weeks and prepeaking</td>
+								</tr>
+								<tr>
+									<td>$$ 2 < w > 3 $$</td>
+									<td>Tough but doable, good for loading phases</td>
+								</tr>
+
+								<tr>
+									<td>$$ 3 < w > 4 $$</td>
+									<td>Brutal, lots of fatigue, good for a limited time and shock microcycles</td>
+								</tr>
+								<tr>
+									<td>$$ w > 4 $$</td>
+									<td>Are you out of your mind?</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<h4>Single workout INOL of a single exercise:</h4>
+						<!-- Table -->
+						<table class="table">
+							<tbody>
+								<tr>
+									<td><strong>Workout Inol</strong></td>
+									<td><strong>Guidance</strong></td>
+								</tr>
+								<tr>
+									<td>$$ N < 0.4 $$</td>
+									<td>Too few reps, not enough stimulus</td>
+								</tr>
+								<tr>
+									<td>$$ 0.4 < N > 1 $$</td>
+									<td>Fresh, quite doable and optimal if you are not accumulating fatigue</td>
+								</tr>
+
+								<tr>
+									<td>$$ 1 < N > 2 $$</td>
+									<td>Tough, but good for loading phases</td>
+								</tr>
+								<tr>
+									<td>$$ N > 2 $$</td>
+									<td>Brutal</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -107,36 +162,85 @@
 	</div>
 </section>
 
-<!-- Contact Section -->
-<section id="contact" class="container content-section text-center">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2">
-			<h2>Contact Start Bootstrap</h2>
-			<p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-			<p>
-				<a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-			</p>
-			<ul class="list-inline banner-social-buttons">
-				<li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg">
-						<i class="fa fa-twitter fa-fw"></i>
-						<span class="network-name">Twitter</span>
-					</a></li>
-				<li><a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg">
-						<i class="fa fa-github fa-fw"></i>
-						<span class="network-name">Github</span>
-					</a></li>
-				<li><a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg">
-						<i class="fa fa-google-plus fa-fw"></i>
-						<span class="network-name">Google+</span>
-					</a></li>
-			</ul>
+<section id="examples" class="content-section text-center">
+	<div class="examples-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Examples</h2>
+					<p>In order to get strong you must lift heavy weights but it is the recovery that actually makes you stronger. If you do not lift enough there will be insufficent stimulus to cause the body to adapt. If you lift to much you will not be able to recover and actually end up weaker or more likely injured. So how should you design a training program that works without wasting time or getting
+						injured?</p>
+					<h3>Russian Squat Program</h3>
+					<p>
+						The Russian squat program found
+						<a href="http://www.exrx.net/WeightTraining/Weightlifting/RussianSquatProgramGenerator.html">here</a>
+						is a three days per week program over six weeks which promises to increase your max by 5%. The hardest sessions are normally 6x6@80% and 3x3@95%
+					</p>
+					<div>
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="max kg" id="russian_calc_input">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button" id="russian_calc_btn">Calc</button>
+							</span>
+						</div>
+						<table class="table">
+							<tr>
+								<td></td>
+								<td><strong>Day 1</strong></td>
+								<td><strong>Day 2</strong></td>
+								<td><strong>Day 3</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Week 1</strong></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x3@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 2</strong></td>
+								<td><span>6x4@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x5@80%</span> <span class="russian80"></span></td>
+
+							</tr>
+							<tr>
+								<td><strong>Week 3</strong></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x6@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 4</strong></td>
+								<td><span>5x5@80%</span> <span class="russian85"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>4x4@80%</span> <span class="russian90"></span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 5</strong></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>3x3@80%</span> <span class="russian95"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 6</strong></td>
+								<td><span>2x2@80%</span> <span class="russian100"></span></td>
+								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>1x1@80%</span> <span class="russian105"></span></td>
+							</tr>
+						</table>
+
+					</div>
+					<p>There are a couple of problems with the table which reduce its usefulness. Firstly it does not go beyond 6 reps. This is probably because lifts like snatch and clean and jerk are typically never performed above that rep range. Everyone does sets of 10 on bench and squat so how does this apply? Secondly what would you do if your session included intensities from two or more ranges. e.g
+						75%, 85%, 92%. Hristo Hristov wrote a paper entitled "How to Design Strength Training Programs Using Prilepin's Table". In it he devises a formula called the inol (Intensity x Number Of Lifts) which resolves these problems.</p>
+
+				</div>
+			</div>
 		</div>
 	</div>
 </section>
 
+
 {% endblock %} {% block scripts %}
-
-
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 {% endblock %}
