@@ -59,7 +59,7 @@ gulp.task('copy', function() {
 					'node_modules/jquery/dist/jquery.min.js' ]).pipe(
 			gulp.dest('vendor/jquery'))
 
-	gulp.src([ 'node_modules/mathjax/*' ]).pipe(gulp.dest('vendor/mathjax'))
+	gulp.src([ 'node_modules/mathjax/**' ]).pipe(gulp.dest('vendor/mathjax'))
 
 	gulp.src(
 			[ 'node_modules/font-awesome/**',

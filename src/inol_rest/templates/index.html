@@ -1,4 +1,13 @@
- {% extends "base.html" %} {% block content %}
+ {% extends "base.html" %} 
+ 
+ {% block head %}
+ 
+ <script src="{{ url_for('static', filename='vendor/mathjax/MathJax.js', config='TeX-MML-AM_SVG-full') }}" async></script>
+ 
+{% endblock %}
+ 
+ 
+ {% block content %}
 
 
 <!-- About Section -->
@@ -127,7 +136,7 @@
 
 {% endblock %} {% block scripts %}
 
-<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 {% endblock %}

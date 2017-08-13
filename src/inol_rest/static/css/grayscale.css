@@ -312,4 +312,27 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
-
+.intsuma {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+}
+.intsuma > span {
+  display: block;
+  font-size: 70%;
+}
+.intsuma .lim-up {
+  margin-bottom: -1ex;
+}
+.intsuma .lim {
+  margin-top: -0.5ex;
+}
+.intsuma .sum {
+  font-size: 1.5em;
+  font-weight: lighter;
+}
+.intsuma .sum-frac {
+  font-size: 1.5em;
+  font-weight: 100;
+}
