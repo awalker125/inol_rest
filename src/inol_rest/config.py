@@ -7,6 +7,8 @@ class Config:
     DEBUG = False
     LOG_DIR= "/var/log/"
     GOOGLE_ANALYTICS_TRACKING_ID = 'UA-101246577-1'
+    APPLICATION_DOMAIN_NAME = "intensity.io"
+    APPLICATION_NAME = "Training"
 
 
 class DevelopmentConfig(Config):
