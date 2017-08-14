@@ -177,62 +177,78 @@
 						is a three days per week program over six weeks which promises to increase your max by 5%. The hardest sessions are normally 6x6@80% and 3x3@95%
 					</p>
 					<div>
-						<div class="input-group">
-							<input type="text" class="form-control" placeholder="max kg" id="russian_calc_input">
-							<span class="input-group-btn">
-								<button class="btn btn-default" type="button" id="russian_calc_btn">Calc</button>
-							</span>
+
+						<div>
+							<input type="number" class="form-control" placeholder="Max" id="russian_calc_input">
 						</div>
+						<br></br>
 						<table class="table">
 							<tr>
 								<td></td>
 								<td><strong>Day 1</strong></td>
 								<td><strong>Day 2</strong></td>
 								<td><strong>Day 3</strong></td>
+								<td><strong>Weekly Inol</strong></td>
 							</tr>
 							<tr>
 								<td><strong>Week 1</strong></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>6x3@80%</span> <span class="russian80"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x3@80%</span> <span> N = 0.9</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 2.1</span></td>
+
 							</tr>
 							<tr>
 								<td><strong>Week 2</strong></td>
-								<td><span>6x4@80%</span> <span class="russian80"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>6x5@80%</span> <span class="russian80"></span></td>
+								<td><span>6x4@80%</span> <span> N = 1.2</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x5@80%</span> <span> N = 1.5</span> <span class="russian80"></span></td>
+								<td><span>w = 3.3</span></td>
 
 							</tr>
 							<tr>
 								<td><strong>Week 3</strong></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>6x6@80%</span> <span class="russian80"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x6@80%</span> <span> N = 1.8</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 3</span></td>
 							</tr>
 							<tr>
 								<td><strong>Week 4</strong></td>
-								<td><span>5x5@80%</span> <span class="russian85"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>4x4@80%</span> <span class="russian90"></span></td>
+								<td><span>5x5@85%</span> <span> N = 1.6</span> <span class="russian85"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>4x4@90%</span> <span> N = 1.6</span> <span class="russian90"></span></td>
+								<td><span>w = 3.8</span></td>
 							</tr>
 							<tr>
 								<td><strong>Week 5</strong></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>3x3@80%</span> <span class="russian95"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>3x3@95%</span> <span> N = 1.8</span> <span class="russian95"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 3</span></td>
 							</tr>
 							<tr>
 								<td><strong>Week 6</strong></td>
-								<td><span>2x2@80%</span> <span class="russian100"></span></td>
-								<td><span>6x2@80%</span> <span class="russian80"></span></td>
-								<td><span>1x1@80%</span> <span class="russian105"></span></td>
+								<td><span>2x2@100%</span> <span> N = 4**</span> <span class="russian100"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>1x1@105%</span> <span> N = 2**</span> <span class="russian105"></span></td>
+								<td><span>w = 6.6**</span></td>
 							</tr>
 						</table>
 
-					</div>
-					<p>There are a couple of problems with the table which reduce its usefulness. Firstly it does not go beyond 6 reps. This is probably because lifts like snatch and clean and jerk are typically never performed above that rep range. Everyone does sets of 10 on bench and squat so how does this apply? Secondly what would you do if your session included intensities from two or more ranges. e.g
-						75%, 85%, 92%. Hristo Hristov wrote a paper entitled "How to Design Strength Training Programs Using Prilepin's Table". In it he devises a formula called the inol (Intensity x Number Of Lifts) which resolves these problems.</p>
 
+
+					</div>
+					<p>** inols can not be calculated for intensities of 100% or above. Here we assume this is actually 99%</p>
+
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="sparkline_russian_inol">Loading..</span>
 				</div>
 			</div>
 		</div>
@@ -241,6 +257,7 @@
 
 
 {% endblock %} {% block scripts %}
+<script src="{{ url_for('static', filename='vendor/sparklines/jquery.sparkline.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 
 {% endblock %}
