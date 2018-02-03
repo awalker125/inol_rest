@@ -24,25 +24,17 @@ class InolRestTestCase(TestCase):
         logger.debug("setting up client")
         self.client = self.app.test_client()
 
-        #u = User(username='test', email='test@example.com', password='test')
-
-        #self.client.post(url_for('auth.login'),
-        #    data = dict(username='test', password='test'))
-
-#    def tearDown(self):
-
-
 
     def test_200OK_when_sending_valid_inol_request(self):
         
         request_data =   dict(
-                            max = 100.00,
+                            maximum = 100.00,
                             reps = 10,
                             weight = 70
                             ) 
         
         response = self.client.post(
-            url_for('api.set_inol'),
+            url_for('api.calc_inol'),
             data=json.dumps(request_data),
             content_type='application/json',
             follow_redirects = True
@@ -54,13 +46,13 @@ class InolRestTestCase(TestCase):
     def test_200OK_and_correct_inol_when_sending_valid_inol_request(self):
         
         request_data =   dict(
-                            max = 100.00,
+                            maximum = 100.00,
                             reps = 2,
                             weight = 80.00
                             ) 
         
         response = self.client.post(
-            url_for('api.set_inol'),
+            url_for('api.calc_inol'),
             data=json.dumps(request_data),
             content_type='application/json',
             follow_redirects = True
@@ -75,12 +67,12 @@ class InolRestTestCase(TestCase):
     def test_400BADREQUEST_when_sending_inol_request_with_missing_data(self):
         
         request_data =   dict(
-                            max = 100.00,
+                            maximum = 100.00,
                             reps = 2
                             ) 
         
         response = self.client.post(
-            url_for('api.set_inol'),
+            url_for('api.calc_inol'),
             data=json.dumps(request_data),
             content_type='application/json',
             follow_redirects = True
