@@ -10,6 +10,11 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+#elitefts https://www.elitefts.com/education/training/program-design/programming-for-strength-big-is-a-by-product-of-strong/
+
+
+def eftsrm(reps, weight):
+    return math.floor(weight * reps * 0.0333 + weight)
 
 #Lombardi
 def lomrm(reps, weight):
@@ -51,8 +56,9 @@ def avgrm(reps,weight):
     ocorm_result = ocorm(reps,weight)
     watrm_result = watrm(reps,weight)
     lanrm_result = lanrm(reps,weight)
+    eftsrm_result = eftsrm(reps,weight)
     
-    return math.floor((lomrm_result + brzrm_result + eplrm_result + mayrm_result + ocorm_result + watrm_result + lanrm_result )/7)
+    return math.floor((lomrm_result + brzrm_result + eplrm_result + mayrm_result + ocorm_result + watrm_result + lanrm_result + eftsrm_result )/8)
 
 
 def calculate_excercise_inol(reps, weight, current_max, sets):

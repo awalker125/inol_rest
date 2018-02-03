@@ -1,0 +1,157 @@
+{% extends "base.html" %} {% block head %}
+
+<script src="{{ url_for('static', filename='vendor/mathjax/MathJax.js', config='TeX-MML-AM_SVG-full') }}" async></script>
+
+<link href="{{ url_for('static', filename='css/plan.css')}}" rel="stylesheet">
+
+{% endblock %} {% block content %}
+
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+	<div class="row">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>About {{ base_properties.application_domain_name }}</h2>
+
+			<p>{{ base_properties.application_domain_name | capitalize() }} is a place where you can design your own training programs in a way that will get you stronger but remove some of the trail and error associated with the training process.</p>
+		</div>
+	</div>
+</section>
+
+<!-- Download Section -->
+<section id="design" class="content-section text-center">
+	<div class="design-section">
+
+		<div class="container">
+			<div class="row">
+				<input type="hidden" name="count" value="1" />
+				<div class="control-group" id="fields">
+					<label class="control-label" for="field1">Nice Multiple Form Fields</label>
+					<div class="controls" id="profs">
+						<form class="input-append">
+							<div id="field">
+								<input autocomplete="off" class="input" id="field1" name="prof1" type="text" placeholder="Type something" data-items="8" />
+								<button id="b1" class="btn add-more" type="button">+</button>
+							</div>
+						</form>
+						<br> <small>Press + to add another form field :)</small>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Download Section -->
+<section id="download" class="content-section text-center">
+	<div class="download-section">
+		<div class="container">
+			<div class="col-lg-8 col-lg-offset-2">
+				<h2>Download Grayscale</h2>
+				<p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
+				<a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="examples" class="content-section text-center">
+	<div class="examples-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<h2>Examples</h2>
+					<p>In order to get strong you must lift heavy weights but it is the recovery that actually makes you stronger. If you do not lift enough there will be insufficent stimulus to cause the body to adapt. If you lift to much you will not be able to recover and actually end up weaker or more likely injured. So how should you design a training program that works without wasting time or getting
+						injured?</p>
+					<h3>Russian Squat Program</h3>
+					<p>
+						The Russian squat program found
+						<a href="http://www.exrx.net/WeightTraining/Weightlifting/RussianSquatProgramGenerator.html">here</a>
+						is a three days per week program over six weeks which promises to increase your max by 5%. The hardest sessions are normally 6x6@80% and 3x3@95%
+					</p>
+					<div>
+
+						<div>
+							<input type="number" class="form-control" placeholder="Max" id="russian_calc_input">
+						</div>
+						<br></br>
+						<table class="table">
+							<tr>
+								<td></td>
+								<td><strong>Day 1</strong></td>
+								<td><strong>Day 2</strong></td>
+								<td><strong>Day 3</strong></td>
+								<td><strong>Weekly Inol</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Week 1</strong></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x3@80%</span> <span> N = 0.9</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 2.1</span></td>
+
+							</tr>
+							<tr>
+								<td><strong>Week 2</strong></td>
+								<td><span>6x4@80%</span> <span> N = 1.2</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x5@80%</span> <span> N = 1.5</span> <span class="russian80"></span></td>
+								<td><span>w = 3.3</span></td>
+
+							</tr>
+							<tr>
+								<td><strong>Week 3</strong></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>6x6@80%</span> <span> N = 1.8</span> <span class="russian80"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 3</span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 4</strong></td>
+								<td><span>5x5@85%</span> <span> N = 1.6</span> <span class="russian85"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>4x4@90%</span> <span> N = 1.6</span> <span class="russian90"></span></td>
+								<td><span>w = 3.8</span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 5</strong></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>3x3@95%</span> <span> N = 1.8</span> <span class="russian95"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>w = 3</span></td>
+							</tr>
+							<tr>
+								<td><strong>Week 6</strong></td>
+								<td><span>2x2@100%</span> <span> N = 4**</span> <span class="russian100"></span></td>
+								<td><span>6x2@80%</span> <span> N = 0.6</span> <span class="russian80"></span></td>
+								<td><span>1x1@105%</span> <span> N = 2**</span> <span class="russian105"></span></td>
+								<td><span>w = 6.6**</span></td>
+							</tr>
+						</table>
+
+
+
+					</div>
+					<p>** inols can not be calculated for intensities of 100% or above. Here we assume this is actually 99%</p>
+
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-12">
+					<span class="sparkline_russian_inol">Loading..</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static', filename='vendor/sparklines/jquery.sparkline.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/plan.js') }}"></script>
+
+{% endblock %}
