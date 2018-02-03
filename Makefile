@@ -17,6 +17,7 @@ clean:
 dev:
 	${INFO} "dev..."
 	pwd
+	pip install -r requirements-dev.txt
 	pip install coverage
 	pip install codecov
 	pip install pylint
