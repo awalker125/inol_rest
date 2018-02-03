@@ -49,7 +49,13 @@ def index():
 @home.route('inol')
 def inol():
     
-    return render_template('inol.html', base_properties=base_properties)
+    return render_template('inol.html', base_properties=base_properties())
 
+
+
+@home.route('plan')
+def plan():
+    
+    return render_template('plan.html', base_properties=base_properties())
 
 

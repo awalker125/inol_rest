@@ -1,0 +1,3 @@
+recursive-include nap/web/templates *
+recursive-include nap/web/static *
+

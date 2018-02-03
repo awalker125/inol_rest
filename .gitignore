@@ -2,3 +2,7 @@
 /setup_shell.sh
 /proxy_off.sh
 /proxy_on.sh
+build
+dist
+/inol_rest.egg-info/
+/.coverage
