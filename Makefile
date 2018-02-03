@@ -26,6 +26,7 @@ dev:
 	pip install sphinx_rtd_theme
 	pip install mock
 	pip install MagicMock
+	pip install Flask-Testing
 	pip install -e .
 
 docs:
