@@ -42,7 +42,7 @@ package:
 test:
 	${INFO} "test..."
 	pwd
-	coverage run -m unittest discover
+	coverage run -m unittest discover src/tests
 	coverage html
 	coverage report
 
