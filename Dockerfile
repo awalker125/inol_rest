@@ -4,8 +4,12 @@ MAINTAINER Andrew Walker <awalker125@users.noreply.github.com>
 # Change to root user
 USER root
 
-RUN yum upgrade all \
-	&& yum install \
+
+
+# Install deps
+RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+	yum -y upgrade && \
+	yum install \
 	httpd \
 	mod_ssl \
   	python-pip \
@@ -16,13 +20,11 @@ RUN yum upgrade all \
   	libffi-devel \
 	&& yum clean all
 
+# Create our wsgi user
 RUN groupadd -g 678 wsgi && useradd -u 678 -g wsgi wsgi
 
-# Install Docker Compose and ansible
+# Install the app
 RUN pip install inol_rest
 
 # Change to wsgi user
 USER wsgi
-
-
-
