@@ -9,7 +9,7 @@ USER root
 # Install deps
 RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
 	yum -y upgrade && \
-	yum install \
+	yum -y install \
 	httpd \
 	mod_ssl \
   	python-pip \
@@ -18,7 +18,7 @@ RUN yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
   	openssl-devel \
   	openldap-devel \
   	libffi-devel \
-	&& yum clean all
+	&& yum -y clean all
 
 # Create our wsgi user
 RUN groupadd -g 678 wsgi && useradd -u 678 -g wsgi wsgi
