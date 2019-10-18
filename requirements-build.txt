@@ -28,4 +28,4 @@ thriftpy==0.3.9
 tqdm==4.19.5
 twine==1.9.1
 urllib3==1.21.1
-Werkzeug==0.12.2
+Werkzeug==0.15.3
